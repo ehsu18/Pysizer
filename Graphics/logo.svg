@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath904">
+      <rect
+         style="opacity:1;vector-effect:none;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.4944579;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect906"
+         width="57.229973"
+         height="32.048782"
+         x="-87.551605"
+         y="216.63742"
+         ry="0"
+         transform="rotate(-45)" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="382.57954"
+     inkscape:cy="502.70889"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="875"
+     inkscape:window-x="1280"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       id="text1173-0-7"
+       y="232.81555"
+       x="98.602379"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.59227753px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21990348"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.10202312px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.21990348"
+         y="232.81555"
+         x="98.602379"
+         id="tspan1171-3-0"
+         sodipodi:role="line">Contornos y punto arreglado</tspan></text>
+    <circle
+       r="19.325901"
+       cy="43.674587"
+       cx="74.481194"
+       id="circle1211-3-5"
+       style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.16233459;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1173-09-10-5"
+       y="50.812069"
+       x="60.274109"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.59368515px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.63242108"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         y="50.812069"
+         x="60.274109"
+         id="tspan1171-2-5-1"
+         sodipodi:role="line">Py</tspan></text>
+    <text
+       id="text1173-5-3"
+       y="50.812069"
+       x="94.209221"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.59368515px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.63242108"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         y="50.812069"
+         x="94.209221"
+         id="tspan1171-9-8"
+         sodipodi:role="line">sizer</tspan></text>
+    <circle
+       style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.28574479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1213-5-1"
+       cx="107.97256"
+       cy="33.692196"
+       r="1.403165" />
+    <path
+       style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.28574479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 156.7112,257.97178 a 1.403165,1.403165 0 0 1 -1.40316,1.40316 1.403165,1.403165 0 0 1 -1.40317,-1.40316 1.403165,1.403165 0 0 1 1.40317,-1.40317 1.403165,1.403165 0 0 1 1.40316,1.40317 z"
+       id="path1213-5-6-2"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.16233459;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 141.03155,267.95417 a 19.325901,19.325901 0 0 1 -19.3259,19.3259 19.325901,19.325901 0 0 1 -19.32591,-19.3259 19.325901,19.325901 0 0 1 19.32591,-19.3259 19.325901,19.325901 0 0 1 19.3259,19.3259 z"
+       id="circle1211-3-3-6" />
+    <g
+       transform="translate(38.35297,135.75179)"
+       aria-label="Py"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.59368515px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.63242108"
+       id="text1173-09-10-3-9">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 76.232196,121.55987 q 3.8354,0 5.8674,1.397 2.0574,1.397 2.0574,4.3688 0,1.5494 -0.5588,2.667 -0.5334,1.0922 -1.5748,1.8034 -1.0414,0.6858 -2.54,1.016 -1.4986,0.3302 -3.429,0.3302 h -1.6002 v 6.1976 h -3.2004 v -17.3482 q 1.1176,-0.254 2.4638,-0.3302 1.3716,-0.1016 2.5146,-0.1016 z m 0.2286,2.7686 q -1.2192,0 -2.0066,0.0762 v 5.9944 h 1.5494 q 2.3114,0 3.556,-0.635 1.2446,-0.6604 1.2446,-2.4638 0,-0.8636 -0.3302,-1.4478 -0.3302,-0.5842 -0.9144,-0.9144 -0.5842,-0.3302 -1.397,-0.4572 -0.7874,-0.1524 -1.7018,-0.1524 z"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1380-3" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 98.020636,126.05567 q -2.0574,7.5692 -4.7752,13.716 -0.508,1.143 -1.0414,1.9558 -0.5334,0.8128 -1.1938,1.3462 -0.6604,0.5334 -1.4732,0.762 -0.8128,0.254 -1.8796,0.254 -0.7112,0 -1.4224,-0.1524 -0.6858,-0.1524 -1.0414,-0.3302 l 0.5588,-2.4638 q 0.9144,0.3556 1.8034,0.3556 1.1938,0 1.8542,-0.5842 0.6858,-0.5588 1.1938,-1.7526 -1.4478,-2.794 -2.794,-6.096 -1.3208,-3.302 -2.3622,-7.0104 h 3.2766 q 0.254,1.0668 0.6096,2.3114 0.381,1.2446 0.8128,2.54 0.4318,1.27 0.9144,2.54 0.4826,1.27 0.9652,2.3622 0.8128,-2.2606 1.524,-4.8006 0.7112,-2.5654 1.2954,-4.953 z"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1382-1" />
+    </g>
+    <g
+       transform="translate(-147.61131,85.858936)"
+       aria-label="sizer"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.59368515px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.63242108"
+       id="text1173-5-9-9">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 293.92178,188.06433 q 1.4224,0 2.3368,-0.4572 0.9398,-0.4826 0.9398,-1.6002 0,-0.5334 -0.1778,-0.9144 -0.1524,-0.381 -0.5334,-0.6858 -0.381,-0.3048 -1.016,-0.5842 -0.6096,-0.2794 -1.524,-0.6604 -0.7366,-0.3048 -1.397,-0.6096 -0.6604,-0.3302 -1.1684,-0.7366 -0.508,-0.4318 -0.8128,-1.016 -0.3048,-0.5842 -0.3048,-1.4224 0,-1.6002 1.1938,-2.5908 1.2192,-0.9906 3.3274,-0.9906 1.3462,0 2.2098,0.2286 0.889,0.2286 1.2446,0.4064 l -0.381,1.4732 q -0.3048,-0.1524 -1.0414,-0.4064 -0.7112,-0.254 -2.1082,-0.254 -0.5588,0 -1.0668,0.127 -0.4826,0.1016 -0.8636,0.3556 -0.381,0.2286 -0.6096,0.6096 -0.2286,0.3556 -0.2286,0.889 0,0.5334 0.2032,0.9144 0.2032,0.381 0.5842,0.6858 0.4064,0.2794 0.9652,0.5334 0.5842,0.254 1.3208,0.5588 0.762,0.3048 1.4478,0.635 0.7112,0.3048 1.2446,0.762 0.5334,0.4318 0.8636,1.0668 0.3302,0.6096 0.3302,1.5494 0,1.778 -1.3462,2.6924 -1.3208,0.9144 -3.6322,0.9144 -1.7272,0 -2.6416,-0.3048 -0.9144,-0.2794 -1.2192,-0.4318 l 0.4318,-1.4986 q 0.0762,0.0508 0.3302,0.1778 0.254,0.1016 0.6858,0.254 0.4318,0.127 1.016,0.2286 0.6096,0.1016 1.397,0.1016 z"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1369-6" />
+      <path
+         d="m 303.74484,189.23273 h -1.651 v -13.1318 h 1.651 z"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1371-4"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 316.24997,177.44713 q -0.5842,0.6604 -1.524,1.8288 -0.9398,1.1684 -2.0066,2.6162 -1.0668,1.4224 -2.1082,2.9972 -1.0414,1.5494 -1.8288,2.9464 h 7.6962 v 1.397 h -9.6012 v -1.1938 q 0.6604,-1.2446 1.6256,-2.7432 0.9906,-1.4986 2.032,-2.9464 1.0414,-1.4732 2.032,-2.7432 0.9906,-1.2954 1.6764,-2.1082 h -6.985 v -1.397 h 8.9916 z"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1373-9" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 318.66972,182.65413 q 0,-1.7272 0.4826,-2.9972 0.508,-1.2954 1.2954,-2.159 0.8128,-0.8636 1.8288,-1.27 1.0414,-0.4318 2.1336,-0.4318 2.413,0 3.8354,1.5748 1.4478,1.5748 1.4478,4.8514 0,0.2032 -0.0254,0.4064 0,0.2032 -0.0254,0.381 h -9.2202 q 0.0762,2.413 1.1938,3.7084 1.1176,1.2954 3.556,1.2954 1.3462,0 2.1336,-0.254 0.7874,-0.254 1.143,-0.4318 l 0.3048,1.4224 q -0.3556,0.2032 -1.3462,0.4826 -0.9652,0.2794 -2.286,0.2794 -1.7272,0 -2.9464,-0.508 -1.2192,-0.508 -2.0066,-1.4224 -0.7874,-0.9144 -1.143,-2.159 -0.3556,-1.27 -0.3556,-2.7686 z m 9.3218,-1.0414 q -0.0508,-2.0574 -0.9652,-3.2004 -0.9144,-1.143 -2.5908,-1.143 -0.889,0 -1.6002,0.3556 -0.6858,0.3556 -1.2192,0.9652 -0.508,0.5842 -0.8128,1.3716 -0.2794,0.7874 -0.3302,1.651 z"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1375-7" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 337.86775,175.84693 q 0.8128,0 1.524,0.127 0.7366,0.127 1.016,0.254 l -0.3302,1.4224 q -0.2032,-0.1016 -0.8382,-0.2032 -0.6096,-0.127 -1.6256,-0.127 -1.0668,0 -1.7272,0.1524 -0.635,0.1524 -0.8382,0.254 v 11.5062 h -1.651 v -12.5222 q 0.635,-0.2794 1.7526,-0.5588 1.1176,-0.3048 2.7178,-0.3048 z"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1377-1" />
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;vector-effect:none;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.32622126;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 92.290495,248.08968 A 38.836577,38.836577 0 0 1 53.45391,286.92626 38.836577,38.836577 0 0 1 14.617314,248.08968 38.836577,38.836577 0 0 1 53.45391,209.25311 38.836577,38.836577 0 0 1 92.290495,248.08968 Z"
+       id="circle1211-3-3-6-0" />
+    <g
+       transform="matrix(2.009561,0,0,2.009561,-114.04838,-17.57907)"
+       aria-label="Py"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.59368515px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.63242108"
+       id="text1173-09-10-3-9-6">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 76.232196,121.55987 q 3.8354,0 5.8674,1.397 2.0574,1.397 2.0574,4.3688 0,1.5494 -0.5588,2.667 -0.5334,1.0922 -1.5748,1.8034 -1.0414,0.6858 -2.54,1.016 -1.4986,0.3302 -3.429,0.3302 h -1.6002 v 6.1976 h -3.2004 v -17.3482 q 1.1176,-0.254 2.4638,-0.3302 1.3716,-0.1016 2.5146,-0.1016 z m 0.2286,2.7686 q -1.2192,0 -2.0066,0.0762 v 5.9944 h 1.5494 q 2.3114,0 3.556,-0.635 1.2446,-0.6604 1.2446,-2.4638 0,-0.8636 -0.3302,-1.4478 -0.3302,-0.5842 -0.9144,-0.9144 -0.5842,-0.3302 -1.397,-0.4572 -0.7874,-0.1524 -1.7018,-0.1524 z"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1380-3-2" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 98.020636,126.05567 q -2.0574,7.5692 -4.7752,13.716 -0.508,1.143 -1.0414,1.9558 -0.5334,0.8128 -1.1938,1.3462 -0.6604,0.5334 -1.4732,0.762 -0.8128,0.254 -1.8796,0.254 -0.7112,0 -1.4224,-0.1524 -0.6858,-0.1524 -1.0414,-0.3302 l 0.5588,-2.4638 q 0.9144,0.3556 1.8034,0.3556 1.1938,0 1.8542,-0.5842 0.6858,-0.5588 1.1938,-1.7526 -1.4478,-2.794 -2.794,-6.096 -1.3208,-3.302 -2.3622,-7.0104 h 3.2766 q 0.254,1.0668 0.6096,2.3114 0.381,1.2446 0.8128,2.54 0.4318,1.27 0.9144,2.54 0.4826,1.27 0.9652,2.3622 0.8128,-2.2606 1.524,-4.8006 0.7112,-2.5654 1.2954,-4.953 z"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.39999962px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.63242108"
+         id="path1382-1-9" />
+    </g>
+  </g>
+</svg>
