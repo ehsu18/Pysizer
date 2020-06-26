@@ -71,10 +71,12 @@ class Application(tkinter.Frame):
             command=self.func_resize, bg='#CCC', fg='#000', bd=1,
             activebackground='#AAA', activeforeground='#FFF', relief='raised')
 
-        # Entrys spaces
+        # Directory entry
         self.dir_entry = tkinter.Entry(self, textvariable=self.dir_var, bd=0)
         self.dir_entry.bind('<Return>', self.charge_list)
         self.dir_entry.bind('<Key-KP_Enter>', self.charge_list)
+
+        # Final size entry
         self.porc_entry = tkinter.Entry(self, textvariable=self.finall_size, bd=0)
         self.porc_entry.bind('<Return>', self.charge_img)
         self.porc_entry.bind('<Key-KP_Enter>', self.charge_img)
