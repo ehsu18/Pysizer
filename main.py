@@ -1,5 +1,3 @@
-os.system('xfce4-terminal --command "python3 -c {}"'.format('print("hola");input()'))
-
 # Pysizer alows you to resize a lot of images in formats jpeg, jpg or png
 # To compile with:
 # "pyinstaller main.py --onefile --hidden-import='PIL._tkinter_finder'"
@@ -9,7 +7,7 @@ try:
     from tkinter import messagebox, filedialog
     from PIL import ImageTk, Image
 except ImportError as err:
-
+    raise
 
 class AutoScrollbar(tkinter.Scrollbar):
     '''A class that inherits from Scrollbar for makeit auto-hiding
@@ -38,7 +36,6 @@ class Application(tkinter.Frame):
         self.master = master
         self.master.title('Image Resizer')
         self.master.geometry('900x550')
-        self.master.bind('<Return>', self.charge_list) # This will change
         try: # Try config the icon
             self.master.iconphoto(False,
                 tkinter.PhotoImage(file='./Graphics/ico_64.png'))
@@ -76,7 +73,11 @@ class Application(tkinter.Frame):
 
         # Entrys spaces
         self.dir_entry = tkinter.Entry(self, textvariable=self.dir_var, bd=0)
+        self.dir_entry.bind('<Return>', self.charge_list)
+        self.dir_entry.bind('<Key-KP_Enter>', self.charge_list)
         self.porc_entry = tkinter.Entry(self, textvariable=self.finall_size, bd=0)
+        self.porc_entry.bind('<Return>', self.charge_img)
+        self.porc_entry.bind('<Key-KP_Enter>', self.charge_img)
 
         # Texts
         self.porc_label = tkinter.Label(self, text='Output file size (px):', bg='#FFF')
@@ -194,11 +195,11 @@ class Application(tkinter.Frame):
             pass
         except ZeroDivisionError:
             messagebox.showerror(title='Error', message='Can\'t resize by zero')
+        except IsADirectoryError:
+            pass
         except BaseException as err:
             messagebox.showerror(title='Unexpected Error', message=err)
             self.img_label.configure(image=None, text='Select an image')
-        return 
-
 if __name__ == '__main__':
     root = tkinter.Tk()
     app = Application(root)
