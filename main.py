@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# 
 # Pysizer alows you to resize a lot of images in formats jpeg, jpg or png
 # To compile with:
 # "pyinstaller main.py --onefile --hidden-import='PIL._tkinter_finder'"
@@ -34,8 +36,8 @@ class Application(tkinter.Frame):
         # Configuring Master
         tkinter.Frame.__init__(self, master, *args, **kwargs)
         self.master = master
-        self.master.title('Image Resizer')
-        self.master.geometry('900x550')
+        self.master.title('Pysizer')
+        self.master.geometry('900x600')
         try: # Try config the icon
             self.master.iconphoto(False,
                 tkinter.PhotoImage(file='./Graphics/ico_64.png'))
@@ -46,57 +48,89 @@ class Application(tkinter.Frame):
         self.dir_var = tkinter.StringVar() # Origin directory
         # try with:  os.get_exec_path()
         self.dir_var.set(os.getcwd()) # Current directory 
-
         self.finall_size = tkinter.StringVar() # Output file size in pixels
         self.finall_size.set('500')
 
         # Constants will be here (Icon Directory, Languaje sheet, etc)
 
         # Configuring main frame
-        self.configure(pady=3, padx=5, bg='#FFF')
+        self.configure(pady=3, padx=5, bg='#FFF',
+            highlightbackground='#CCC', highlightthickness=0)
         self.create_widgets()
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
-        self.columnconfigure(2, weight=1)
-        self.columnconfigure(3, weight=1)
+        self.columnconfigure(2, weight=2)
         self.pack(fill='both', expand=1)
     def create_widgets(self):
         '''Method to create the main GUI'''
 
-        # Controls at bottom
+        # Buttons
         self.dir_btn = tkinter.Button(self, text='Search',
-            command=self.charge_directory, bg='#CCC', fg='#000', bd=1,
-            activebackground='#AAA', activeforeground='#FFF', relief='raised')
+            command=self.charge_directory,
+            bg='#28F',
+            fg='#FFF',
+            bd=0,
+            activebackground='#FFF',
+            activeforeground='#28F',
+            relief='flat',
+            highlightbackground='#28F',
+            highlightthickness=1)
         self.resize_btn = tkinter.Button(self, text='Resize',
-            command=self.func_resize, bg='#CCC', fg='#000', bd=1,
-            activebackground='#AAA', activeforeground='#FFF', relief='raised')
+            command=self.func_resize,
+            bg='#28F',
+            fg='#FFF',
+            bd=0,
+            activebackground='#FFF',
+            activeforeground='#28F',
+            relief='flat',
+            highlightbackground='#28F',
+            highlightthickness=1)
 
-        # Directory entry
-        self.dir_entry = tkinter.Entry(self, textvariable=self.dir_var, bd=0)
+        # Entrys
+        self.dir_entry = tkinter.Entry(self,
+            textvariable=self.dir_var,
+            highlightthickness=1, bd=0)
         self.dir_entry.bind('<Return>', self.charge_list)
         self.dir_entry.bind('<Key-KP_Enter>', self.charge_list)
-
-        # Final size entry
-        self.porc_entry = tkinter.Entry(self, textvariable=self.finall_size, bd=0)
+        self.porc_entry = tkinter.Entry(self,
+            textvariable=self.finall_size,
+            highlightthickness=1, bd=0, width=5)
         self.porc_entry.bind('<Return>', self.charge_img)
         self.porc_entry.bind('<Key-KP_Enter>', self.charge_img)
 
         # Texts
-        self.porc_label = tkinter.Label(self, text='Output file size (px):', bg='#FFF')
+        self.porc_label = tkinter.Label(self,
+            text='Output file size (px):', bg='#FFF')
         
         # Image visor Label
-        self.img_label = tkinter.Label(self, text='Select an image', bg='#FFF')        
+        self.img_label = tkinter.Label(self,
+            text='Select an image', bg='#FFF')        
 
         # List Frame
-        self.framelist = tkinter.Frame(self, bd=1)
-
+        self.framelist = tkinter.Frame(self, bd=1, bg='#FFF')
         # List Elements
-        self.listbox = tkinter.Listbox(self.framelist, bd=0, highlightthickness=0)
-        self.yscroll = AutoScrollbar(self.framelist, bd=0, bg='#CCC',
-            activebackground='#AAA', troughcolor='#FFF')
-        self.xscroll = AutoScrollbar(self.framelist, orient='horizontal', bd=0,
-            bg='#CCC', activebackground='#AAA', troughcolor='#FFF')
-        
+        self.listbox = tkinter.Listbox(self.framelist,
+            bg='#FFF',
+            fg='#000',
+            bd=0,
+            highlightthickness=1,
+            highlightbackground='#CCC',
+            highlightcolor='#CCC',
+            selectforeground='#FFF',
+            selectbackground='#28F')
+        self.yscroll = AutoScrollbar(self.framelist,
+            bd=0, bg='#CCC',
+            activebackground='#CCC', 
+            troughcolor='#FFF', width=10,
+            elementborderwidth=0,
+            highlightbackground='#F00')
+        self.xscroll = AutoScrollbar(self.framelist,
+            orient='horizontal',
+            bd=0, bg='#CCC',
+            activebackground='#CCC',
+            troughcolor='#FFF', width=10,
+            elementborderwidth=0,
+            highlightbackground='#F00')
         # Configuring list elements
         self.listbox.bind('<<ListboxSelect>>', self.charge_img)
         self.listbox.configure(yscrollcommand=self.yscroll.set,
@@ -106,19 +140,19 @@ class Application(tkinter.Frame):
         self.charge_list()
 
         # Griding into Listbox frame
-        self.listbox.grid(column=0, row=0, sticky='nsew')
+        self.listbox.grid(column=0, row=0, sticky='nsew', padx=1, pady=1)
         self.yscroll.grid(column=1, row=0, sticky='ns')
         self.xscroll.grid(column=0, row=1, sticky='ew', columnspan=2)
         self.framelist.columnconfigure(0, weight=1)
         self.framelist.rowconfigure(0, weight=1)
 
-        #Griding all
+        # Griding all
         self.framelist.grid(column=0, row=0, columnspan=2, sticky='nsew')
-        self.dir_entry.grid(column=0, row=1, sticky='we')
-        self.dir_btn.grid(column=1, row=1, padx=5, pady=3)
-        self.porc_label.grid(column=2, row=1, sticky='e')
-        self.porc_entry.grid(column=3, row=1, sticky='we')
-        self.resize_btn.grid(column=4, row=1, padx=5)
+        self.dir_entry.grid(column=0, row=1, padx=(1,0), pady=3, sticky='nsew')
+        self.dir_btn.grid(column=1, row=1, padx=(5,1), pady=3, sticky='nsew')
+        self.porc_label.grid(column=2, row=1, sticky='nse')
+        self.porc_entry.grid(column=3, row=1, pady=3, sticky='nsew')
+        self.resize_btn.grid(column=4, row=1, padx=(5,0), pady=3, sticky='nsew')
         self.img_label.grid(column=2, columnspan=3, row=0)
     def check_dir(self):
         try:
@@ -202,6 +236,7 @@ class Application(tkinter.Frame):
         except BaseException as err:
             messagebox.showerror(title='Unexpected Error', message=err)
             self.img_label.configure(image=None, text='Select an image')
+
 if __name__ == '__main__':
     root = tkinter.Tk()
     app = Application(root)
