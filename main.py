@@ -6,10 +6,11 @@
 try:
     import tkinter
     import os
+    from language import *
     from tkinter import messagebox, filedialog
     from PIL import ImageTk, Image
 except ImportError as err:
-    raise
+    messagebox.showerror(message=err)
 
 class AutoScrollbar(tkinter.Scrollbar):
     """A class that inherits from Scrollbar for make it auto-hiding
@@ -53,8 +54,7 @@ class Application(tkinter.Frame):
         self.color1 = '#FFF'
         self.color2 = '#28F'
         self.color3 = '#CCC'
-
-        # Constants will be here (Icon Directory, Language sheet, etc)
+        self.lan = 'es'
 
         # Configuring main frame
         self.configure(
@@ -106,7 +106,7 @@ class Application(tkinter.Frame):
             }
         self.btn_path = tkinter.Button(
             master,
-            text='Search',
+            text=t_search[self.lan],
             command=self.charge_directory,
             **configurations
             )
@@ -120,7 +120,7 @@ class Application(tkinter.Frame):
 
         self.btn_resize = tkinter.Button(
             master,
-            text='Resize',
+            text=t_resize[self.lan],
             command=self.func_resize,
             **configurations
             )
@@ -176,7 +176,7 @@ class Application(tkinter.Frame):
             }
         self.label_final_size = tkinter.Label(
             master,
-            text='Output file size (px):',
+            text=t_final_size[self.lan],
             **configurations
             )
         self.label_final_size.grid(
@@ -192,7 +192,7 @@ class Application(tkinter.Frame):
             }
         self.img_label = tkinter.Label(
             master,
-            text='Select an image',
+            text=t_select_image[self.lan],
             **configurations
             )
         self.img_label.grid(
@@ -290,20 +290,16 @@ class Application(tkinter.Frame):
                     img.save(self.dir_var.get() + '/resized/'+i, 'png')
                 else:
                     messagebox.showerror(title='Problem with an file', message=i+' Can\'t be resized')
-            messagebox.showinfo(title='All done', message='Images resized successfully')
+            messagebox.showinfo(title='All done', message=t_all_done[self.lan])
         except IndexError:
-            messagebox.showerror(title='Error', message='Here are no images')
+            messagebox.showerror(title='Error', message=t_no_images[self.lan])
         except ValueError:
-            messagebox.showerror(title='Error', message='Bad size')
+            messagebox.showerror(title='Error', message=t_bad_size[self.lan])
             self.finall_size.set('500')
         except FileNotFoundError:
-            messagebox.showerror(title='Error', message='This directory does not exist.')
-            return
+            messagebox.showerror(title='Error', message=t_dir_no_exist[self.lan])
         except BaseException as err:
             messagebox.showerror(message=err)
-            raise
-        finally:
-            pass
 
     def charge_directory(self, *e):
         d = filedialog.askdirectory()
@@ -321,7 +317,7 @@ class Application(tkinter.Frame):
                 i.name.endswith('.png')
                 ]
         except FileNotFoundError:
-            messagebox.showerror(message='This directory doesn\'t exist')
+            messagebox.showerror(message=t_dir_no_exist[self.lan])
             self.current_images = []
         except BaseException as err:
             messagebox.showerror(message=err)
@@ -332,12 +328,11 @@ class Application(tkinter.Frame):
     def charge_listbox(self):
         self.listbox.delete(0,'end')
         if len(self.current_images) == 0:
-            self.listbox.insert('end','Here are no images')
+            self.listbox.insert('end',t_no_images[self.lan])
             self.charge_img()
             return
         for i in self.current_images:
             self.listbox.insert('end', i)
-
 
     def charge_img(self, *e):
         if self.current_images == []:
