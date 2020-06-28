@@ -349,6 +349,11 @@ class Application(tkinter.Frame):
             self.img_label.configure(text=None, image=img)
         except FileNotFoundError:
             self.charge_list()
+        except ZeroDivisionError:
+            messagebox.showerror(message=t_bad_size[self.lan])
+            self.final_size.set('500')
+        except BaseException as err:
+            messagebox.showerror(message=err)
 
 if __name__ == '__main__':
     root = tkinter.Tk()
