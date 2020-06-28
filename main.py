@@ -46,11 +46,13 @@ class Application(tkinter.Frame):
 
         # Variables
         self.dir_var = tkinter.StringVar() # Origin directory
-        # try with:  os.get_exec_path()
         self.dir_var.set(os.getcwd()) # Current directory
         self.final_size = tkinter.StringVar() # Output file size in pixels
         self.final_size.set('500')
         self.current_images = []
+        self.color1 = '#FFF'
+        self.color2 = '#28F'
+        self.color3 = '#CCC'
 
         # Constants will be here (Icon Directory, Language sheet, etc)
 
@@ -58,7 +60,7 @@ class Application(tkinter.Frame):
         self.configure(
             padx=0,
             pady=0,
-            bg='#FFF',
+            bg=self.color1,
             highlightthickness=0
             )
         self.create_widgets()
@@ -69,20 +71,20 @@ class Application(tkinter.Frame):
 
     def create_widgets(self):
         """Method to create the main GUI"""
-        self.frame_top = tkinter.Frame(self, bd=0, bg='#FFF', height=5)
+        self.frame_top = tkinter.Frame(self, bd=0, bg=self.color1, height=5)
         self.frame_top.grid(row=0, sticky='nsew')
 
-        self.frame_main = tkinter.Frame(self, bd=0, bg='#FFF')
+        self.frame_main = tkinter.Frame(self, bd=0, bg=self.color1)
         self.frame_main.columnconfigure(0, minsize=300)
         self.frame_main.columnconfigure(1, weight=3)
         self.frame_main.rowconfigure(0, weight=1)
         self.frame_main.grid(row=1, sticky='nsew')
 
-        self.frame_controls = tkinter.Frame(self, bd=0, bg='#FFF')
+        self.frame_controls = tkinter.Frame(self, bd=0, bg=self.color1)
         self.frame_controls.columnconfigure(0, weight=1)
         self.frame_controls.grid(row=2, sticky='nsew')
 
-        self.frame_bottom = tkinter.Frame(self, bd=0, bg='#28F', height=10)
+        self.frame_bottom = tkinter.Frame(self, bd=0, bg=self.color2, height=10)
         self.frame_bottom.grid(row=3, sticky='nsew')
 
         self.__create_buttons(self.frame_controls)
@@ -93,13 +95,13 @@ class Application(tkinter.Frame):
 
     def __create_buttons(self, master):
         configurations = {
-            'bg':'#28F',
-            'fg':'#FFF',
+            'bg':self.color2,
+            'fg':self.color1,
             'bd':0,
-            'activebackground':'#FFF',
-            'activeforeground':'#28F',
+            'activebackground':self.color1,
+            'activeforeground':self.color2,
             'relief':'flat',
-            'highlightbackground':'#28F',
+            'highlightbackground':self.color2,
             'highlightthickness':1
             }
         self.btn_path = tkinter.Button(
@@ -133,7 +135,7 @@ class Application(tkinter.Frame):
     def __create_entrys(self, master):
         configurations = {
             'highlightthickness':1,
-            'highlightbackground':'#CCC',
+            'highlightbackground':self.color3,
             'bd':0,
             'relief':'flat'
             }
@@ -170,7 +172,7 @@ class Application(tkinter.Frame):
 
     def __create_text(self, master):
         configurations = {
-            'bg':'#FFF'
+            'bg':self.color1
             }
         self.label_final_size = tkinter.Label(
             master,
@@ -186,7 +188,7 @@ class Application(tkinter.Frame):
 
     def __create_visor(self, master):
         configurations = {
-            'bg':'#FFF'
+            'bg':self.color1
             }
         self.img_label = tkinter.Label(
             master,
@@ -203,27 +205,26 @@ class Application(tkinter.Frame):
     def __create_list(self, master):
         autoscrollbar_configurations = {
             'bd':0,
-            'bg':'#CCC',
-            'activebackground':'#CCC',
-            'troughcolor':'#FFF',
+            'bg':self.color3,
+            'activebackground':self.color3,
+            'troughcolor':self.color1,
             'width':10,
             'elementborderwidth':0,
-            'highlightbackground':'#F00'
+            'highlightbackground':self.color1
             }
         listbox_configurations = {
-            'bg':'#FFF',
-            'fg':'#000',
+            'bg':self.color1,
             'bd':0,
             'highlightthickness':1,
-            'highlightbackground':'#CCC',
-            'highlightcolor':'#CCC',
-            'selectforeground':'#FFF',
-            'selectbackground':'#28F'
+            'highlightbackground':self.color3,
+            'highlightcolor':self.color3,
+            'selectforeground':self.color1,
+            'selectbackground':self.color2
             }
         self.framelist = tkinter.Frame(
             master,
             bd=0,
-            bg='#FFF'
+            bg=self.color1
             )
         self.framelist.columnconfigure(0, weight=1)
         self.framelist.rowconfigure(0, weight=1)
