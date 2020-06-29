@@ -47,8 +47,9 @@ class Application(tkinter.Frame):
         self.master.geometry('900x600')
         self.master.bind('<Control-d>', self.charge_directory)
         try:  # Try config the icon
+            self.icon = './Graphics/ico_64.png'
             self.master.iconphoto(False,
-                                  tkinter.PhotoImage(file='./Graphics/ico_64.png'))
+                                  tkinter.PhotoImage(file= self.icon))
         except:
             pass
 
@@ -148,6 +149,16 @@ class Application(tkinter.Frame):
                                      menu=self.menu_set_language)
         self.menubar.add_cascade(label=t_config[self.lan],
                                  menu=self.menu_config)
+
+        # Menu Help
+        self.menu_help = tkinter.Menu(self.menubar, tearoff=0,
+                                      **submenu_configurations)
+        self.menu_help.add_command(label=t_how_to[self.lan],
+                                   command=self.win_help)
+        self.menu_help.add_command(label=t_about[self.lan],
+                                   command=self.win_about)
+        self.menubar.add_cascade(label=t_help[self.lan],
+                                 menu=self.menu_help)
 
         # Meter menu al master
         self.master.config(menu=self.menubar)
@@ -337,6 +348,64 @@ class Application(tkinter.Frame):
         except FileExistsError:
             pass
 
+    def win_help(self):
+        autoscrollbar_configurations = {
+            'bd': 0,
+            'bg': self.color3,
+            'activebackground': self.color3,
+            'troughcolor': self.color1,
+            'width': 10,
+            'elementborderwidth': 0,
+            'highlightbackground': self.color1
+        }
+        r = tkinter.Toplevel(self.master)
+        r.iconphoto(False, tkinter.PhotoImage(file=self.icon))
+        r.geometry('500x500')
+        t = tkinter.Text(r, bg=self.color1, bd=0)
+        t.grid(column=0, row=0, sticky='nsew')
+        s = AutoScrollbar(r, **autoscrollbar_configurations)
+        s.grid(column=1, row=0, sticky='ns')
+        r.columnconfigure(0, weight=1)
+        r.rowconfigure(0, weight=1)
+        t.configure(yscrollcommand=s.set)
+        s.configure(command=t.yview)
+
+        t.tag_config('title', font='Noto_Sans 20 bold', spacing3=10, foreground=self.color4)
+        t.tag_config('content', font='Noto_Sans12', spacing1=5, tabs=1, foreground=self.color4)
+
+        t.insert('end', t_how_to_title[self.lan], ('title',))
+        t.insert('end', t_how_to_content[self.lan], ('content',))
+        t.configure(state='disabled', wrap='word', tabs='')
+
+    def win_about(self):
+        autoscrollbar_configurations = {
+            'bd': 0,
+            'bg': self.color3,
+            'activebackground': self.color3,
+            'troughcolor': self.color1,
+            'width': 10,
+            'elementborderwidth': 0,
+            'highlightbackground': self.color1
+        }
+        r = tkinter.Toplevel(self.master)
+        r.iconphoto(False, tkinter.PhotoImage(file=self.icon))
+        r.geometry('500x500')
+        t = tkinter.Text(r, bg=self.color1, bd=0)
+        t.grid(column=0, row=0, sticky='nsew')
+        s = AutoScrollbar(r, **autoscrollbar_configurations)
+        s.grid(column=1, row=0, sticky='ns')
+        r.columnconfigure(0, weight=1)
+        r.rowconfigure(0, weight=1)
+        t.configure(yscrollcommand=s.set)
+        s.configure(command=t.yview)
+
+        t.tag_config('title', font='Noto_Sans 20 bold', spacing3=10, foreground=self.color4)
+        t.tag_config('content', font='Noto_Sans12', spacing1=5, tabs=1, foreground=self.color4)
+
+        t.insert('end', t_about_title[self.lan], ('title',))
+        t.insert('end', t_about_content[self.lan], ('content',))
+        t.configure(state='disabled', wrap='word', tabs='')
+
     def set_language(self, lan):
         self.lan = lan
         self.create_widgets()
@@ -431,7 +500,6 @@ class Application(tkinter.Frame):
             messagebox.showerror(message=t_select_image[self.lan])
         except BaseException as err:
             messagebox.showerror(message=err)
-
 
 if __name__ == '__main__':
     root = tkinter.Tk()
