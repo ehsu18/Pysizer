@@ -404,8 +404,10 @@ class Application(tkinter.Frame):
             self.__create_visor(self.frame_main)
             return
         try:
+            if int(self.final_size.get()) < 1: raise ValueError
             global img
             img = self.listbox.get('anchor')
+            print(self.dir_var.get() + '/' + img)
             img = Image.open(self.dir_var.get() + '/' + img)
             img.thumbnail(
                 (int(self.final_size.get()),int(self.final_size.get())),
@@ -414,9 +416,11 @@ class Application(tkinter.Frame):
             self.img_label.configure(text=None, image=img)
         except FileNotFoundError:
             self.charge_list()
-        except ZeroDivisionError:
+        except ValueError:
             messagebox.showerror(message=t_bad_size[self.lan])
             self.final_size.set('500')
+        except IsADirectoryError:
+            messagebox.showerror(message=t_select_image[self.lan])
         except BaseException as err:
             messagebox.showerror(message=err)
 
