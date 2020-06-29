@@ -39,6 +39,7 @@ class Application(tkinter.Frame):
         self.master = master
         self.master.title('Pysizer')
         self.master.geometry('900x600')
+        self.master.bind('<Control-d>', self.charge_directory)
         try: # Try config the icon
             self.master.iconphoto(False,
                 tkinter.PhotoImage(file='./Graphics/ico_64.png'))
@@ -54,6 +55,7 @@ class Application(tkinter.Frame):
         self.color1 = '#FFF'
         self.color2 = '#28F'
         self.color3 = '#CCC'
+        self.color4 = '#000'
         self.lan = 'es'
 
         # Configuring main frame
@@ -64,34 +66,85 @@ class Application(tkinter.Frame):
             highlightthickness=0
             )
         self.create_widgets()
-        self.charge_list()
         self.rowconfigure(1, weight=1)
         self.columnconfigure(0, weight=1)
         self.pack(fill='both', expand=1)
 
     def create_widgets(self):
         """Method to create the main GUI"""
-        self.frame_top = tkinter.Frame(self, bd=0, bg=self.color1, height=5)
+        self.frame_top = tkinter.Frame(self, bd=0,
+                                       bg=self.color1, height=5)
         self.frame_top.grid(row=0, sticky='nsew')
 
-        self.frame_main = tkinter.Frame(self, bd=0, bg=self.color1)
+        self.frame_main = tkinter.Frame(self, bd=0,
+                                        bg=self.color1)
         self.frame_main.columnconfigure(0, minsize=300)
         self.frame_main.columnconfigure(1, weight=3)
         self.frame_main.rowconfigure(0, weight=1)
         self.frame_main.grid(row=1, sticky='nsew')
 
-        self.frame_controls = tkinter.Frame(self, bd=0, bg=self.color1)
+        self.frame_controls = tkinter.Frame(self, bd=0,
+                                            bg=self.color1)
         self.frame_controls.columnconfigure(0, weight=1)
         self.frame_controls.grid(row=2, sticky='nsew')
 
-        self.frame_bottom = tkinter.Frame(self, bd=0, bg=self.color2, height=10)
+        self.frame_bottom = tkinter.Frame(self, bd=0,
+                                          bg=self.color2, height=10)
         self.frame_bottom.grid(row=3, sticky='nsew')
 
+        self.__create_menu()
         self.__create_buttons(self.frame_controls)
         self.__create_entrys(self.frame_controls)
         self.__create_text(self.frame_controls)
         self.__create_visor(self.frame_main)
         self.__create_list(self.frame_main)
+        self.charge_list()
+
+    def __create_menu(self):
+        menu_configurations = {
+            'bg': self.color2,
+            'fg': self.color1,
+            'bd': 0,
+            'relief': 'flat',
+            'activebackground':self.color1,
+            'activeforeground':self.color2,
+            'activeborderwidth':0
+            }
+        submenu_configurations = {
+            'bg': self.color1,
+            'fg': self.color4,
+            'bd': 0,
+            'relief': 'flat',
+            'activebackground': self.color3,
+            'activeforeground': self.color4,
+            'activeborderwidth': 0
+            }
+
+        self.menubar = tkinter.Menu(self.master, **menu_configurations)
+
+        # Menu file
+        self.menu_file = tkinter.Menu(self.menubar, tearoff=0,
+                                      **submenu_configurations) # Create button
+        self.menu_file.add_command(label=t_search[self.lan],
+                                   command=self.charge_directory,
+                                   accelerator='Crtl+D') # Create sub_option
+        self.menubar.add_cascade(label=t_file_menu[self.lan],
+                                 menu=self.menu_file) # add to menubar
+
+        # Menu configuration
+        self.menu_config = tkinter.Menu(self.menubar, tearoff=0,
+                                        **submenu_configurations)
+        self.menu_set_language = tkinter.Menu(self.menu_config, tearoff=0,
+                                        **submenu_configurations)
+        self.menu_set_language.add_command(label='English', command=lambda: self.set_language('en'))
+        self.menu_set_language.add_command(label='Español', command=lambda: self.set_language('es'))
+        self.menu_config.add_cascade(label=t_config_lang[self.lan],
+                                     menu=self.menu_set_language)
+        self.menubar.add_cascade(label=t_config[self.lan],
+                                 menu=self.menu_config)
+
+        # Meter menu al master
+        self.master.config(menu=self.menubar)
 
     def __create_buttons(self, master):
         configurations = {
@@ -172,7 +225,8 @@ class Application(tkinter.Frame):
 
     def __create_text(self, master):
         configurations = {
-            'bg':self.color1
+            'bg':self.color1,
+            'fg':self.color4
             }
         self.label_final_size = tkinter.Label(
             master,
@@ -277,27 +331,38 @@ class Application(tkinter.Frame):
         except FileExistsError:
             pass
 
+    def set_language(self, lan):
+        self.lan = lan
+        self.create_widgets()
+
     def func_resize(self):
         try:
             self.__check_dir()
             if len(self.current_images) == 0: raise IndexError
             for i in self.current_images:
                 img = Image.open(self.dir_var.get()+'/'+i)
-                img.thumbnail((int(self.final_size.get()),int(self.final_size.get())), Image.ANTIALIAS)
+                img.thumbnail((int(self.final_size.get()),
+                               int(self.final_size.get())),
+                              Image.ANTIALIAS)
                 if i.endswith('.jpg') or i.endswith('.jpeg'):
                     img.save(self.dir_var.get() + '/resized/'+i, 'jpeg')
                 elif i.endswith('.png'):
                     img.save(self.dir_var.get() + '/resized/'+i, 'png')
                 else:
-                    messagebox.showerror(title='Problem with an file', message=i+' Can\'t be resized')
-            messagebox.showinfo(title='All done', message=t_all_done[self.lan])
+                    messagebox.showerror(title='Problem with an file',
+                                         message=i+' Can\'t be resized')
+            messagebox.showinfo(title='All done',
+                                message=t_all_done[self.lan])
         except IndexError:
-            messagebox.showerror(title='Error', message=t_no_images[self.lan])
+            messagebox.showerror(title='Error',
+                                 message=t_no_images[self.lan])
         except ValueError:
-            messagebox.showerror(title='Error', message=t_bad_size[self.lan])
+            messagebox.showerror(title='Error',
+                                 message=t_bad_size[self.lan])
             self.finall_size.set('500')
         except FileNotFoundError:
-            messagebox.showerror(title='Error', message=t_dir_no_exist[self.lan])
+            messagebox.showerror(title='Error',
+                                 message=t_dir_no_exist[self.lan])
         except BaseException as err:
             messagebox.showerror(message=err)
 

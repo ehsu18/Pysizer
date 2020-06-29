@@ -30,3 +30,15 @@ t_all_done = {
     'es':'todas las imágenes han sido redimensionadas',
     'en':'All images has been resized'
     }
+t_file_menu = {
+    'es':'Directorio',
+    'en':'Directory'
+    }
+t_config = {
+    'es':'Configuracion',
+    'en':'Configurations'
+    }
+t_config_lang = {
+    'es':'Lenguaje',
+    'en':'Language'
+    }
