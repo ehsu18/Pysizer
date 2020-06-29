@@ -12,25 +12,31 @@ try:
 except ImportError as err:
     messagebox.showerror(message=err)
 
+
 class AutoScrollbar(tkinter.Scrollbar):
     """A class that inherits from Scrollbar for make it auto-hiding
 
     Source:
     http://effbot.org/zone/tkinter-autoscrollbar.htm
     """
+
     def set(self, lo, hi):
         if float(lo) <= 0.0 and float(hi) >= 1.0:
             self.tk.call("grid", "remove", self)
         else:
             self.grid()
         tkinter.Scrollbar.set(self, lo, hi)
+
     def pack(self, **kw):
         raise tkinter.TclError
+
     def place(self, **kw):
         raise tkinter.TclError
 
+
 class Application(tkinter.Frame):
     """Main class of the application"""
+
     def __init__(self, master=None, *args, **kwargs):
         """Here are defined the variables, geometry's and others"""
 
@@ -40,16 +46,16 @@ class Application(tkinter.Frame):
         self.master.title('Pysizer')
         self.master.geometry('900x600')
         self.master.bind('<Control-d>', self.charge_directory)
-        try: # Try config the icon
+        try:  # Try config the icon
             self.master.iconphoto(False,
-                tkinter.PhotoImage(file='./Graphics/ico_64.png'))
+                                  tkinter.PhotoImage(file='./Graphics/ico_64.png'))
         except:
             pass
 
         # Variables
-        self.dir_var = tkinter.StringVar() # Origin directory
-        self.dir_var.set(os.getcwd()) # Current directory
-        self.final_size = tkinter.StringVar() # Output file size in pixels
+        self.dir_var = tkinter.StringVar()  # Origin directory
+        self.dir_var.set(os.getcwd())  # Current directory
+        self.final_size = tkinter.StringVar()  # Output file size in pixels
         self.final_size.set('500')
         self.current_images = []
         self.color1 = '#FFF'
@@ -64,7 +70,7 @@ class Application(tkinter.Frame):
             pady=0,
             bg=self.color1,
             highlightthickness=0
-            )
+        )
         self.create_widgets()
         self.rowconfigure(1, weight=1)
         self.columnconfigure(0, weight=1)
@@ -106,10 +112,10 @@ class Application(tkinter.Frame):
             'fg': self.color1,
             'bd': 0,
             'relief': 'flat',
-            'activebackground':self.color1,
-            'activeforeground':self.color2,
-            'activeborderwidth':0
-            }
+            'activebackground': self.color1,
+            'activeforeground': self.color2,
+            'activeborderwidth': 0
+        }
         submenu_configurations = {
             'bg': self.color1,
             'fg': self.color4,
@@ -118,24 +124,24 @@ class Application(tkinter.Frame):
             'activebackground': self.color3,
             'activeforeground': self.color4,
             'activeborderwidth': 0
-            }
+        }
 
         self.menubar = tkinter.Menu(self.master, **menu_configurations)
 
         # Menu file
         self.menu_file = tkinter.Menu(self.menubar, tearoff=0,
-                                      **submenu_configurations) # Create button
+                                      **submenu_configurations)  # Create button
         self.menu_file.add_command(label=t_search[self.lan],
                                    command=self.charge_directory,
-                                   accelerator='Crtl+D') # Create sub_option
+                                   accelerator='Crtl+D')  # Create sub_option
         self.menubar.add_cascade(label=t_file_menu[self.lan],
-                                 menu=self.menu_file) # add to menubar
+                                 menu=self.menu_file)  # add to menubar
 
         # Menu configuration
         self.menu_config = tkinter.Menu(self.menubar, tearoff=0,
                                         **submenu_configurations)
         self.menu_set_language = tkinter.Menu(self.menu_config, tearoff=0,
-                                        **submenu_configurations)
+                                              **submenu_configurations)
         self.menu_set_language.add_command(label='English', command=lambda: self.set_language('en'))
         self.menu_set_language.add_command(label='Español', command=lambda: self.set_language('es'))
         self.menu_config.add_cascade(label=t_config_lang[self.lan],
@@ -148,55 +154,55 @@ class Application(tkinter.Frame):
 
     def __create_buttons(self, master):
         configurations = {
-            'bg':self.color2,
-            'fg':self.color1,
-            'bd':0,
-            'activebackground':self.color1,
-            'activeforeground':self.color2,
-            'relief':'flat',
-            'highlightbackground':self.color2,
-            'highlightthickness':1
-            }
+            'bg': self.color2,
+            'fg': self.color1,
+            'bd': 0,
+            'activebackground': self.color1,
+            'activeforeground': self.color2,
+            'relief': 'flat',
+            'highlightbackground': self.color2,
+            'highlightthickness': 1
+        }
         self.btn_path = tkinter.Button(
             master,
             text=t_search[self.lan],
             command=self.charge_directory,
             **configurations
-            )
+        )
         self.btn_path.grid(
             column=1,
             row=0,
             pady=5,
             sticky='w',
-            padx=(5,0)
-            )
+            padx=(5, 0)
+        )
 
         self.btn_resize = tkinter.Button(
             master,
             text=t_resize[self.lan],
             command=self.func_resize,
             **configurations
-            )
+        )
         self.btn_resize.grid(
             column=4,
             row=0,
             pady=5,
             sticky='e',
-            padx=(5,5)
-            )
+            padx=(5, 5)
+        )
 
     def __create_entrys(self, master):
         configurations = {
-            'highlightthickness':1,
-            'highlightbackground':self.color3,
-            'bd':0,
-            'relief':'flat'
-            }
+            'highlightthickness': 1,
+            'highlightbackground': self.color3,
+            'bd': 0,
+            'relief': 'flat'
+        }
         self.entry_path = tkinter.Entry(
             master,
             textvariable=self.dir_var,
             **configurations
-            )
+        )
         self.entry_path.bind('<Return>', self.charge_list)
         self.entry_path.bind('<Key-KP_Enter>', self.charge_list)
         self.entry_path.grid(
@@ -204,15 +210,15 @@ class Application(tkinter.Frame):
             row=0,
             sticky='nsew',
             pady=5,
-            padx=(5,0)
-            )
+            padx=(5, 0)
+        )
 
         self.entry_final_size = tkinter.Entry(
             master,
             width=5,
             textvariable=self.final_size,
             **configurations
-            )
+        )
         self.entry_final_size.bind('<Return>', self.charge_img)
         self.entry_final_size.bind('<Key-KP_Enter>', self.charge_img)
         self.entry_final_size.grid(
@@ -220,108 +226,108 @@ class Application(tkinter.Frame):
             row=0,
             sticky='nsew',
             pady=5,
-            padx=(2,0)
-            )
+            padx=(2, 0)
+        )
 
     def __create_text(self, master):
         configurations = {
-            'bg':self.color1,
-            'fg':self.color4
-            }
+            'bg': self.color1,
+            'fg': self.color4
+        }
         self.label_final_size = tkinter.Label(
             master,
             text=t_final_size[self.lan],
             **configurations
-            )
+        )
         self.label_final_size.grid(
             column=2,
             row=0,
             sticky='e',
-            padx=(10,0)
-            )
+            padx=(10, 0)
+        )
 
     def __create_visor(self, master):
         configurations = {
-            'bg':self.color1
-            }
+            'bg': self.color1
+        }
         self.img_label = tkinter.Label(
             master,
             text=t_select_image[self.lan],
             **configurations
-            )
+        )
         self.img_label.grid(
             column=1,
             row=0,
             sticky='nsew',
-            padx=(5,5)
-            )
+            padx=(5, 5)
+        )
 
     def __create_list(self, master):
         autoscrollbar_configurations = {
-            'bd':0,
-            'bg':self.color3,
-            'activebackground':self.color3,
-            'troughcolor':self.color1,
-            'width':10,
-            'elementborderwidth':0,
-            'highlightbackground':self.color1
-            }
+            'bd': 0,
+            'bg': self.color3,
+            'activebackground': self.color3,
+            'troughcolor': self.color1,
+            'width': 10,
+            'elementborderwidth': 0,
+            'highlightbackground': self.color1
+        }
         listbox_configurations = {
-            'bg':self.color1,
-            'bd':0,
-            'highlightthickness':1,
-            'highlightbackground':self.color3,
-            'highlightcolor':self.color3,
-            'selectforeground':self.color1,
-            'selectbackground':self.color2
-            }
+            'bg': self.color1,
+            'bd': 0,
+            'highlightthickness': 1,
+            'highlightbackground': self.color3,
+            'highlightcolor': self.color3,
+            'selectforeground': self.color1,
+            'selectbackground': self.color2
+        }
         self.framelist = tkinter.Frame(
             master,
             bd=0,
             bg=self.color1
-            )
+        )
         self.framelist.columnconfigure(0, weight=1)
         self.framelist.rowconfigure(0, weight=1)
         self.framelist.grid(
             column=0,
             row=0,
             sticky='nsew'
-            )
+        )
 
         self.listbox = tkinter.Listbox(
             self.framelist,
             **listbox_configurations
-            )
+        )
         self.listbox.grid(
             column=0,
             row=0,
             sticky='nsew',
-            padx=(5,3),
-            pady=(0,3)
-            )
+            padx=(5, 3),
+            pady=(0, 3)
+        )
         self.yscroll = AutoScrollbar(
             self.framelist,
             **autoscrollbar_configurations
-            )
+        )
         self.yscroll.grid(
             column=1,
             row=0,
             sticky='ns',
-            )
+        )
         self.xscroll = AutoScrollbar(self.framelist,
-            orient='horizontal',
-            **autoscrollbar_configurations
-            )
+                                     orient='horizontal',
+                                     **autoscrollbar_configurations
+                                     )
         self.xscroll.grid(
             column=0,
             row=1,
             sticky='ew',
             columnspan=2
-            )
+        )
 
         self.listbox.bind('<<ListboxSelect>>', self.charge_img)
         self.listbox.configure(yscrollcommand=self.yscroll.set,
-            xscrollcommand=self.xscroll.set)
+                               xscrollcommand=self.xscroll.set)
         self.yscroll.configure(command=self.listbox.yview)
         self.xscroll.configure(command=self.listbox.xview)
 
@@ -340,31 +346,31 @@ class Application(tkinter.Frame):
             self.__check_dir()
             if len(self.current_images) == 0: raise IndexError
             for i in self.current_images:
-                img = Image.open(self.dir_var.get()+'/'+i)
+                img = Image.open(self.dir_var.get() + '/' + i)
                 img.thumbnail((int(self.final_size.get()),
                                int(self.final_size.get())),
                               Image.ANTIALIAS)
                 if i.endswith('.jpg') or i.endswith('.jpeg'):
-                    img.save(self.dir_var.get() + '/resized/'+i, 'jpeg')
+                    img.save(self.dir_var.get() + '/resized/' + i, 'jpeg')
                 elif i.endswith('.png'):
-                    img.save(self.dir_var.get() + '/resized/'+i, 'png')
+                    img.save(self.dir_var.get() + '/resized/' + i, 'png')
                 else:
-                    messagebox.showerror(title='Problem with an file',
-                                         message=i+' Can\'t be resized')
-            messagebox.showinfo(title='All done',
-                                message=t_all_done[self.lan])
+                    messagebox.showerror(title=t_error[self.lan],
+                                         message=i + ' Can\'t be resized')
+            messagebox.showinfo(message=t_all_done[self.lan])
         except IndexError:
-            messagebox.showerror(title='Error',
+            messagebox.showerror(title=t_error[self.lan],
                                  message=t_no_images[self.lan])
         except ValueError:
-            messagebox.showerror(title='Error',
+            messagebox.showerror(title=t_error[self.lan],
                                  message=t_bad_size[self.lan])
-            self.finall_size.set('500')
+            self.final_size.set('500')
         except FileNotFoundError:
-            messagebox.showerror(title='Error',
+            messagebox.showerror(title=t_error[self.lan],
                                  message=t_dir_no_exist[self.lan])
         except BaseException as err:
-            messagebox.showerror(message=err)
+            messagebox.showerror(title=t_error[self.lan],
+                                 message=err)
 
     def charge_directory(self, *e):
         d = filedialog.askdirectory()
@@ -375,25 +381,27 @@ class Application(tkinter.Frame):
     def charge_list(self, *e):
         try:
             self.current_images = [i.name
-                for i in os.scandir(self.dir_var.get())
-                if i.is_file()
-                if i.name.endswith('.jpg') or
-                i.name.endswith('.jpeg') or
-                i.name.endswith('.png')
-                ]
+                                   for i in os.scandir(self.dir_var.get())
+                                   if i.is_file()
+                                   if i.name.endswith('.jpg') or
+                                   i.name.endswith('.jpeg') or
+                                   i.name.endswith('.png')
+                                   ]
         except FileNotFoundError:
-            messagebox.showerror(message=t_dir_no_exist[self.lan])
+            messagebox.showerror(title=t_error[self.lan],
+                                 message=t_dir_no_exist[self.lan])
             self.current_images = []
         except BaseException as err:
-            messagebox.showerror(message=err)
+            messagebox.showerror(title=t_error[self.lan],
+                                 message=err)
             self.current_images = []
         finally:
             self.charge_listbox()
 
     def charge_listbox(self):
-        self.listbox.delete(0,'end')
+        self.listbox.delete(0, 'end')
         if len(self.current_images) == 0:
-            self.listbox.insert('end',t_no_images[self.lan])
+            self.listbox.insert('end', t_no_images[self.lan])
             self.charge_img()
             return
         for i in self.current_images:
@@ -410,7 +418,7 @@ class Application(tkinter.Frame):
             print(self.dir_var.get() + '/' + img)
             img = Image.open(self.dir_var.get() + '/' + img)
             img.thumbnail(
-                (int(self.final_size.get()),int(self.final_size.get())),
+                (int(self.final_size.get()), int(self.final_size.get())),
                 1)
             img = ImageTk.PhotoImage(img)
             self.img_label.configure(text=None, image=img)
@@ -423,6 +431,7 @@ class Application(tkinter.Frame):
             messagebox.showerror(message=t_select_image[self.lan])
         except BaseException as err:
             messagebox.showerror(message=err)
+
 
 if __name__ == '__main__':
     root = tkinter.Tk()
