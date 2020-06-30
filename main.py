@@ -12,6 +12,7 @@ try:
 except ImportError as err:
     print('Error importing modules:\n', err)
     input()
+    quit()
 
 class AutoScrollbar(tkinter.Scrollbar):
     """A class that inherits from Scrollbar for make it auto-hiding
