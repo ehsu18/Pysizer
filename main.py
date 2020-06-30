@@ -10,7 +10,8 @@ try:
     from tkinter import messagebox, filedialog, colorchooser
     from PIL import ImageTk, Image
 except ImportError as err:
-    messagebox.showerror(message=err)
+    print('Error importing modules:\n', err)
+    input()
 
 class AutoScrollbar(tkinter.Scrollbar):
     """A class that inherits from Scrollbar for make it auto-hiding
