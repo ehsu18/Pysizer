@@ -7,11 +7,10 @@ try:
     import tkinter
     import os
     from language import *
-    from tkinter import messagebox, filedialog
+    from tkinter import messagebox, filedialog, colorchooser
     from PIL import ImageTk, Image
 except ImportError as err:
     messagebox.showerror(message=err)
-
 
 class AutoScrollbar(tkinter.Scrollbar):
     """A class that inherits from Scrollbar for make it auto-hiding
@@ -33,7 +32,6 @@ class AutoScrollbar(tkinter.Scrollbar):
     def place(self, **kw):
         raise tkinter.TclError
 
-
 class Application(tkinter.Frame):
     """Main class of the application"""
 
@@ -46,6 +44,7 @@ class Application(tkinter.Frame):
         self.master.title('Pysizer')
         self.master.geometry('900x600')
         self.master.bind('<Control-d>', self.charge_directory)
+        self.master.protocol('WM_DELETE_WINDOW', lambda: self.exit())
         try:  # Try config the icon
             self.icon = './Graphics/ico_64.png'
             self.master.iconphoto(False,
@@ -59,11 +58,17 @@ class Application(tkinter.Frame):
         self.final_size = tkinter.StringVar()  # Output file size in pixels
         self.final_size.set('500')
         self.current_images = []
+
+        self.config_file = 'config.psz'
         self.color1 = '#FFF'
-        self.color2 = '#28F'
+        self.color2 = '#364350'
         self.color3 = '#CCC'
         self.color4 = '#000'
         self.lan = 'es'
+        try:
+            self.charge_config()
+        except:
+            self.save_config()
 
         # Configuring main frame
         self.configure(
@@ -141,12 +146,15 @@ class Application(tkinter.Frame):
         # Menu configuration
         self.menu_config = tkinter.Menu(self.menubar, tearoff=0,
                                         **submenu_configurations)
+        self.menu_config.add_command(label=t_choose_color[self.lan],
+                                     command=self.change_color)
         self.menu_set_language = tkinter.Menu(self.menu_config, tearoff=0,
                                               **submenu_configurations)
         self.menu_set_language.add_command(label='English', command=lambda: self.set_language('en'))
         self.menu_set_language.add_command(label='Español', command=lambda: self.set_language('es'))
         self.menu_config.add_cascade(label=t_config_lang[self.lan],
                                      menu=self.menu_set_language)
+
         self.menubar.add_cascade(label=t_config[self.lan],
                                  menu=self.menu_config)
 
@@ -348,6 +356,36 @@ class Application(tkinter.Frame):
         except FileExistsError:
             pass
 
+    def save_config(self):
+        configurations = []
+        configurations.append(self.color1 + '\n')
+        configurations.append(self.color2 + '\n')
+        configurations.append(self.color3 + '\n')
+        configurations.append(self.color4 + '\n')
+        configurations.append(self.lan + '\n')
+
+        with open(self.config_file, 'w') as f:
+            f.writelines(configurations)
+
+    def charge_config(self):
+        with open(self.config_file, 'r') as f:
+            configurations = f.readlines()
+
+        self.color1 = configurations[0][:-1]
+        self.color2 = configurations[1][:-1]
+        self.color3 = configurations[2][:-1]
+        self.color4 = configurations[3][:-1]
+        self.lan = configurations[4][:-1]
+
+    def change_color(self):
+        try:
+            c = str(colorchooser.askcolor(self.color2)[1])
+            if c == 'None': raise Exception
+        except:
+            return
+        self.color2 = c
+        self.create_widgets()
+
     def win_help(self):
         autoscrollbar_configurations = {
             'bd': 0,
@@ -484,7 +522,6 @@ class Application(tkinter.Frame):
             if int(self.final_size.get()) < 1: raise ValueError
             global img
             img = self.listbox.get('anchor')
-            print(self.dir_var.get() + '/' + img)
             img = Image.open(self.dir_var.get() + '/' + img)
             img.thumbnail(
                 (int(self.final_size.get()), int(self.final_size.get())),
@@ -497,9 +534,13 @@ class Application(tkinter.Frame):
             messagebox.showerror(message=t_bad_size[self.lan])
             self.final_size.set('500')
         except IsADirectoryError:
-            messagebox.showerror(message=t_select_image[self.lan])
+            pass
         except BaseException as err:
             messagebox.showerror(message=err)
+
+    def exit(self):
+        self.save_config()
+        self.quit()
 
 if __name__ == '__main__':
     root = tkinter.Tk()
